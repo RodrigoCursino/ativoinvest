@@ -1792,83 +1792,101 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      messages: [{
-        avatar: 'https://avatars0.githubusercontent.com/u/9064066?v=4&s=460',
-        name: 'John Leider',
-        title: 'Welcome to Vuetify.js!',
-        excerpt: 'Thank you for joining our community...'
+      headers: [{
+        text: 'Dessert (100g serving)',
+        align: 'left',
+        sortable: false,
+        value: 'name'
       }, {
-        color: 'red',
-        icon: 'people',
-        name: 'Social',
-        new: 1,
-        total: 3,
-        title: 'Twitter'
+        text: 'Calories',
+        value: 'calories'
       }, {
-        color: 'teal',
-        icon: 'local_offer',
-        name: 'Promos',
-        new: 2,
-        total: 4,
-        title: 'Shop your way',
-        exceprt: 'New deals available, Join Today'
+        text: 'Fat (g)',
+        value: 'fat'
+      }, {
+        text: 'Carbs (g)',
+        value: 'carbs'
+      }, {
+        text: 'Protein (g)',
+        value: 'protein'
+      }, {
+        text: 'Iron (%)',
+        value: 'iron'
       }],
-      lorem: 'Lorem ipsum dolor sit amet, at aliquam vivendum vel, everti delicatissimi cu eos. Dico iuvaret debitis mel an, et cum zril menandri. Eum in consul legimus accusam. Ea dico abhorreant duo, quo illum minimum incorrupte no, nostro voluptaria sea eu. Suas eligendi ius at, at nemore equidem est. Sed in error hendrerit, in consul constituam cum.'
+      desserts: [{
+        name: 'Frozen Yogurt',
+        calories: 159,
+        fat: 6.0,
+        carbs: 24,
+        protein: 4.0,
+        iron: '1%'
+      }, {
+        name: 'Ice cream sandwich',
+        calories: 237,
+        fat: 9.0,
+        carbs: 37,
+        protein: 4.3,
+        iron: '1%'
+      }, {
+        name: 'Eclair',
+        calories: 262,
+        fat: 16.0,
+        carbs: 23,
+        protein: 6.0,
+        iron: '7%'
+      }, {
+        name: 'Cupcake',
+        calories: 305,
+        fat: 3.7,
+        carbs: 67,
+        protein: 4.3,
+        iron: '8%'
+      }, {
+        name: 'Gingerbread',
+        calories: 356,
+        fat: 16.0,
+        carbs: 49,
+        protein: 3.9,
+        iron: '16%'
+      }, {
+        name: 'Jelly bean',
+        calories: 375,
+        fat: 0.0,
+        carbs: 94,
+        protein: 0.0,
+        iron: '0%'
+      }, {
+        name: 'Lollipop',
+        calories: 392,
+        fat: 0.2,
+        carbs: 98,
+        protein: 0,
+        iron: '2%'
+      }, {
+        name: 'Honeycomb',
+        calories: 408,
+        fat: 3.2,
+        carbs: 87,
+        protein: 6.5,
+        iron: '45%'
+      }, {
+        name: 'Donut',
+        calories: 452,
+        fat: 25.0,
+        carbs: 51,
+        protein: 4.9,
+        iron: '22%'
+      }, {
+        name: 'KitKat',
+        calories: 518,
+        fat: 26.0,
+        carbs: 65,
+        protein: 7,
+        iron: '6%'
+      }]
     };
   }
 });
@@ -37532,173 +37550,80 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "v-layout",
-    { attrs: { column: "", "justify-center": "" } },
-    [
-      _c("v-subheader", [_vm._v("Today")]),
-      _vm._v(" "),
-      _c(
-        "v-expansion-panel",
-        { attrs: { popout: "" } },
-        _vm._l(_vm.messages, function(message, i) {
-          return _c(
-            "v-expansion-panel-content",
-            {
-              key: i,
-              attrs: { "hide-actions": "" },
-              scopedSlots: _vm._u(
-                [
-                  {
-                    key: "header",
-                    fn: function() {
-                      return [
-                        _c(
-                          "v-layout",
-                          {
-                            attrs: { "align-center": "", row: "", spacer: "" }
-                          },
-                          [
-                            _c(
-                              "v-flex",
-                              { attrs: { xs4: "", sm2: "", md1: "" } },
-                              [
-                                _c(
-                                  "v-avatar",
-                                  { attrs: { size: "36px" } },
-                                  [
-                                    message.avatar
-                                      ? _c("img", {
-                                          attrs: {
-                                            src:
-                                              "https://avatars0.githubusercontent.com/u/9064066?v=4&s=460",
-                                            alt: "Avatar"
-                                          }
-                                        })
-                                      : _c("v-icon", {
-                                          attrs: { color: message.color },
-                                          domProps: {
-                                            textContent: _vm._s(message.icon)
-                                          }
-                                        })
-                                  ],
-                                  1
-                                )
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "v-flex",
-                              {
-                                attrs: {
-                                  sm5: "",
-                                  md3: "",
-                                  "hidden-xs-only": ""
-                                }
-                              },
-                              [
-                                _c("strong", {
-                                  domProps: { innerHTML: _vm._s(message.name) }
-                                }),
-                                _vm._v(" "),
-                                message.total
-                                  ? _c("span", { staticClass: "grey--text" }, [
-                                      _vm._v(
-                                        "\n             (" +
-                                          _vm._s(message.total) +
-                                          ")\n          "
-                                      )
-                                    ])
-                                  : _vm._e()
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "v-flex",
-                              { attrs: { "no-wrap": "", xs5: "", sm3: "" } },
-                              [
-                                message.new
-                                  ? _c(
-                                      "v-chip",
-                                      {
-                                        staticClass: "ml-0",
-                                        attrs: {
-                                          color: message.color + " lighten-4",
-                                          label: "",
-                                          small: ""
-                                        }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                            " +
-                                            _vm._s(message.new) +
-                                            " new\n                        "
-                                        )
-                                      ]
-                                    )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                _c("strong", {
-                                  domProps: { innerHTML: _vm._s(message.title) }
-                                })
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            message.excerpt
-                              ? _c(
-                                  "v-flex",
-                                  {
-                                    staticClass: "grey--text",
-                                    attrs: {
-                                      ellipsis: "",
-                                      "hidden-sm-and-down": ""
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                        —\n                        " +
-                                        _vm._s(message.excerpt) +
-                                        "\n                    "
-                                    )
-                                  ]
-                                )
-                              : _vm._e()
-                          ],
-                          1
-                        )
-                      ]
-                    },
-                    proxy: true
-                  }
-                ],
-                null,
-                true
-              )
-            },
-            [
-              _vm._v(" "),
-              _c(
-                "v-card",
-                [
-                  _c("v-divider"),
-                  _vm._v(" "),
-                  _c("v-card-text", {
-                    domProps: { textContent: _vm._s(_vm.lorem) }
-                  })
-                ],
-                1
-              )
-            ],
-            1
-          )
-        }),
-        1
-      )
-    ],
-    1
-  )
+  return _c("v-data-table", {
+    staticClass: "elevation-1",
+    attrs: { headers: _vm.headers, items: _vm.desserts },
+    scopedSlots: _vm._u([
+      {
+        key: "headerCell",
+        fn: function(props) {
+          return [
+            _c(
+              "v-tooltip",
+              {
+                attrs: { bottom: "" },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "activator",
+                      fn: function(ref) {
+                        var on = ref.on
+                        return [
+                          _c("span", _vm._g({}, on), [
+                            _vm._v(
+                              "\n        " +
+                                _vm._s(props.header.text) +
+                                "\n      "
+                            )
+                          ])
+                        ]
+                      }
+                    }
+                  ],
+                  null,
+                  true
+                )
+              },
+              [
+                _vm._v(" "),
+                _c("span", [
+                  _vm._v("\n      " + _vm._s(props.header.text) + "\n    ")
+                ])
+              ]
+            )
+          ]
+        }
+      },
+      {
+        key: "items",
+        fn: function(props) {
+          return [
+            _c("td", [_vm._v(_vm._s(props.item.name))]),
+            _vm._v(" "),
+            _c("td", { staticClass: "text-xs-right" }, [
+              _vm._v(_vm._s(props.item.calories))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "text-xs-right" }, [
+              _vm._v(_vm._s(props.item.fat))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "text-xs-right" }, [
+              _vm._v(_vm._s(props.item.carbs))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "text-xs-right" }, [
+              _vm._v(_vm._s(props.item.protein))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "text-xs-right" }, [
+              _vm._v(_vm._s(props.item.iron))
+            ])
+          ]
+        }
+      }
+    ])
+  })
 }
 var staticRenderFns = []
 render._withStripped = true
