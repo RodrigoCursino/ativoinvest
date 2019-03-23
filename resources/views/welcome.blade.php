@@ -29,13 +29,13 @@
             @endif
 
                 <div id="app">
-                    <v-app>
-                        <v-content>
-                            <v-container>
-                                <example-component></example-component>
-                            </v-container>
-                        </v-content>
-                    </v-app>
+                  <main-component>
+                      <v-content>
+                          <v-container>
+                              <example-component></example-component>
+                          </v-container>
+                      </v-content>
+                  </main-component>
                 </div>
         </div>
     </body>

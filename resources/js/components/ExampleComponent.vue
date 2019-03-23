@@ -1,113 +1,122 @@
-
 <template>
-    <v-layout
-            column
-            justify-center
+    <v-data-table
+            :headers="headers"
+            :items="desserts"
+            :loading="true"
+            class="elevation-1"
     >
-        <v-subheader>Today</v-subheader>
-
-        <v-expansion-panel popout>
-            <v-expansion-panel-content
-                    v-for="(message, i) in messages"
-                    :key="i"
-                    hide-actions
-            >
-                <template v-slot:header>
-                    <v-layout
-                            align-center
-                            row
-                            spacer
-                    >
-                        <v-flex xs4 sm2 md1>
-                            <v-avatar
-                                    size="36px"
-                            >
-                                <img
-                                        v-if="message.avatar"
-                                        src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"
-                                        alt="Avatar"
-                                >
-                                <v-icon
-                                        v-else
-                                        :color="message.color"
-                                        v-text="message.icon"
-                                ></v-icon>
-                            </v-avatar>
-                        </v-flex>
-
-                        <v-flex sm5 md3 hidden-xs-only>
-                            <strong v-html="message.name"></strong>
-                            <span
-                                    v-if="message.total"
-                                    class="grey--text"
-                            >
-                &nbsp;({{ message.total }})
-              </span>
-                        </v-flex>
-
-                        <v-flex no-wrap xs5 sm3>
-                            <v-chip
-                                    v-if="message.new"
-                                    :color="`${message.color} lighten-4`"
-                                    class="ml-0"
-                                    label
-                                    small
-                            >
-                                {{ message.new }} new
-                            </v-chip>
-                            <strong v-html="message.title"></strong>
-                        </v-flex>
-
-                        <v-flex
-                                v-if="message.excerpt"
-                                class="grey--text"
-                                ellipsis
-                                hidden-sm-and-down
-                        >
-                            &mdash;
-                            {{ message.excerpt }}
-                        </v-flex>
-                    </v-layout>
-                </template>
-
-                <v-card>
-                    <v-divider></v-divider>
-                    <v-card-text v-text="lorem"></v-card-text>
-                </v-card>
-            </v-expansion-panel-content>
-        </v-expansion-panel>
-    </v-layout>
+        <v-progress-linear v-slot:progress color="blue" indeterminate></v-progress-linear>
+        <template v-slot:items="props">
+            <td>{{ props.item.name }}</td>
+            <td class="text-xs-right">{{ props.item.calories }}</td>
+            <td class="text-xs-right">{{ props.item.fat }}</td>
+            <td class="text-xs-right">{{ props.item.carbs }}</td>
+            <td class="text-xs-right">{{ props.item.protein }}</td>
+            <td class="text-xs-right">{{ props.item.iron }}</td>
+        </template>
+    </v-data-table>
 </template>
 
 <script>
     export default {
-        data: () => ({
-            messages: [
-                {
-                    avatar: 'https://avatars0.githubusercontent.com/u/9064066?v=4&s=460',
-                    name: 'John Leider',
-                    title: 'Welcome to Vuetify.js!',
-                    excerpt: 'Thank you for joining our community...'
-                },
-                {
-                    color: 'red',
-                    icon: 'people',
-                    name: 'Social',
-                    new: 1,
-                    total: 3,
-                    title: 'Twitter'
-                },
-                {
-                    color: 'teal',
-                    icon: 'local_offer',
-                    name: 'Promos',
-                    new: 2,
-                    total: 4,
-                    title: 'Shop your way',
-                    exceprt: 'New deals available, Join Today'
-                }
-            ],
-            lorem: 'Lorem ipsum dolor sit amet, at aliquam vivendum vel, everti delicatissimi cu eos. Dico iuvaret debitis mel an, et cum zril menandri. Eum in consul legimus accusam. Ea dico abhorreant duo, quo illum minimum incorrupte no, nostro voluptaria sea eu. Suas eligendi ius at, at nemore equidem est. Sed in error hendrerit, in consul constituam cum.'
-        })
+        data () {
+            return {
+                headers: [
+                    {
+                        text: 'Dessert (100g serving)',
+                        align: 'left',
+                        sortable: false,
+                        value: 'name'
+                    },
+                    { text: 'Calories', value: 'calories' },
+                    { text: 'Fat (g)', value: 'fat' },
+                    { text: 'Carbs (g)', value: 'carbs' },
+                    { text: 'Protein (g)', value: 'protein' },
+                    { text: 'Iron (%)', value: 'iron' }
+                ],
+                desserts: [
+                    {
+                        name: 'Frozen Yogurt',
+                        calories: 159,
+                        fat: 6.0,
+                        carbs: 24,
+                        protein: 4.0,
+                        iron: '1%'
+                    },
+                    {
+                        name: 'Ice cream sandwich',
+                        calories: 237,
+                        fat: 9.0,
+                        carbs: 37,
+                        protein: 4.3,
+                        iron: '1%'
+                    },
+                    {
+                        name: 'Eclair',
+                        calories: 262,
+                        fat: 16.0,
+                        carbs: 23,
+                        protein: 6.0,
+                        iron: '7%'
+                    },
+                    {
+                        name: 'Cupcake',
+                        calories: 305,
+                        fat: 3.7,
+                        carbs: 67,
+                        protein: 4.3,
+                        iron: '8%'
+                    },
+                    {
+                        name: 'Gingerbread',
+                        calories: 356,
+                        fat: 16.0,
+                        carbs: 49,
+                        protein: 3.9,
+                        iron: '16%'
+                    },
+                    {
+                        name: 'Jelly bean',
+                        calories: 375,
+                        fat: 0.0,
+                        carbs: 94,
+                        protein: 0.0,
+                        iron: '0%'
+                    },
+                    {
+                        name: 'Lollipop',
+                        calories: 392,
+                        fat: 0.2,
+                        carbs: 98,
+                        protein: 0,
+                        iron: '2%'
+                    },
+                    {
+                        name: 'Honeycomb',
+                        calories: 408,
+                        fat: 3.2,
+                        carbs: 87,
+                        protein: 6.5,
+                        iron: '45%'
+                    },
+                    {
+                        name: 'Donut',
+                        calories: 452,
+                        fat: 25.0,
+                        carbs: 51,
+                        protein: 4.9,
+                        iron: '22%'
+                    },
+                    {
+                        name: 'KitKat',
+                        calories: 518,
+                        fat: 26.0,
+                        carbs: 65,
+                        protein: 7,
+                        iron: '6%'
+                    }
+                ]
+            }
+        }
     }
 </script>
