@@ -1,11 +1,16 @@
-require('./bootstrap');
-
 import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css'
 
+require('./bootstrap');
 
 window.Vue = require('vue');
-
+// let particles = window.particlesJS = require('particlesjs/dist/particles.min');
+//
+// console.log('pa', particles);
+//
+// particles.load('particles-js', './partials/particles.json', function() {
+//     console.log('callback - particles.json config loaded');
+// });
 
 
 // const files = require.context('./', true, /\.vue$/i);
