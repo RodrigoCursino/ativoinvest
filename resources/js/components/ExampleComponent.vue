@@ -2,20 +2,10 @@
     <v-data-table
             :headers="headers"
             :items="desserts"
+            :loading="true"
             class="elevation-1"
     >
-        <template slot="headerCell" slot-scope="props">
-            <v-tooltip bottom>
-                <template v-slot:activator="{ on }">
-          <span v-on="on">
-            {{ props.header.text }}
-          </span>
-                </template>
-                <span>
-          {{ props.header.text }}
-        </span>
-            </v-tooltip>
-        </template>
+        <v-progress-linear v-slot:progress color="blue" indeterminate></v-progress-linear>
         <template v-slot:items="props">
             <td>{{ props.item.name }}</td>
             <td class="text-xs-right">{{ props.item.calories }}</td>
