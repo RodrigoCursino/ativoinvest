@@ -38,14 +38,20 @@
     </v-toolbar>
 </template>
 <script>
+    import {mapState} from "vuex"
     export default {
         name: 'nav-main',
         props: {
         },
         computed: {
-            showSideBar () {
-                return this.$store.state.sideBarControl;
-            }
+            ...mapState({
+                showSideBar: state => {
+                    return state.sideBarControl;
+                },
+                menu: state => {
+                    return state.navList;
+                }
+            })
         },
         data: () => ({
             dialog: false,

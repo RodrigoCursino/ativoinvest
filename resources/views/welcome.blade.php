@@ -32,7 +32,7 @@
                   <main-component>
                       <v-content>
                           <v-container>
-                              <example-component></example-component>
+                              <content-tabs></content-tabs>
                           </v-container>
                       </v-content>
                   </main-component>

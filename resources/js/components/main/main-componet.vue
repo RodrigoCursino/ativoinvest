@@ -12,7 +12,6 @@
     import SideBar    from "./side-bar.vue";
     import NavMain    from "./nav-main.vue";
     import store      from "./shared/store";
-    import {mapState} from "vuex"
 
     export default {
         store,
@@ -22,11 +21,8 @@
             NavMain
         },
         computed: {
-            ...mapState({
-                showSideBar: state => {
-                    return this.store.state.sideBarControl;
-                }
-            })
+
+
         },
         data: () => ({
 

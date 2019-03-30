@@ -1,12 +1,12 @@
 <template>
     <v-navigation-drawer
-            :value.sync="showSideBar"
+            v-model="showSideBar"
             :clipped="$vuetify.breakpoint.lgAndUp"
             fixed
             app
     >
         <v-list dense>
-            <template v-for="item in menu">
+            <template v-for="item in items">
                 <v-layout
                         v-if="item.heading"
                         :key="item.heading"
@@ -32,8 +32,7 @@
                     <template v-slot:activator>
                         <v-list-tile>
                             <v-list-tile-content>
-                                <v-list-tile-title
-                                >
+                                <v-list-tile-title>
                                     {{ item.text }}
                                 </v-list-tile-title>
                             </v-list-tile-content>
@@ -48,14 +47,13 @@
                             <v-icon>{{ child.icon }}</v-icon>
                         </v-list-tile-action>
                         <v-list-tile-content>
-                            <v-list-tile-title
-                            >
+                            <v-list-tile-title>
                                 {{ child.text }}
                             </v-list-tile-title>
                         </v-list-tile-content>
                     </v-list-tile>
                 </v-list-group>
-                <v-list-tile v-else :key="item.text" @click="SELECT_TAB(item.action)">
+                <v-list-tile v-else :key="item.text" @click="">
                     <v-list-tile-action>
                         <v-icon>{{ item.icon }}</v-icon>
                     </v-list-tile-action>
@@ -70,7 +68,6 @@
     </v-navigation-drawer>
 </template>
 <script>
-    import {mapState, mapMutations} from "vuex"
     export default {
         name: 'side-bar',
         props: {
@@ -79,22 +76,53 @@
         components: {
 
         },
-        computed: {
-            ...mapState({
-                showSideBar: state => {
-                    return state.sideBarControl;
+        data: () => ({
+            items: [
+                { icon: 'contacts', text: 'Contacts' },
+                { icon: 'history', text: 'Frequently contacted' },
+                { icon: 'content_copy', text: 'Duplicates' },
+                {
+                    icon: 'keyboard_arrow_up',
+                    'icon-alt': 'keyboard_arrow_down',
+                    text: 'Labels',
+                    model: true,
+                    children: [
+                        { icon: 'add', text: 'Create label' }
+                    ]
                 },
-                menu: state => {
-                    return state.navList;
-                }
-            })
-
+                {
+                    icon: 'keyboard_arrow_up',
+                    'icon-alt': 'keyboard_arrow_down',
+                    text: 'More',
+                    model: false,
+                    children: [
+                        { text: 'Import' },
+                        { text: 'Export' },
+                        { text: 'Print' },
+                        { text: 'Undo changes' },
+                        { text: 'Other contacts' }
+                    ]
+                },
+                { icon: 'settings', text: 'Settings' },
+                { icon: 'chat_bubble', text: 'Send feedback' },
+                { icon: 'help', text: 'Help' },
+                { icon: 'phonelink', text: 'App downloads' },
+                { icon: 'keyboard', text: 'Go to the old version' }
+            ]
+        }),
+        props: {
+            source: String
+        },
+        computed: {
+            showSideBar() {
+                return this.$store.state.sideBarControl;
+            },
+            menu() {
+                return this.$store.state.navList;
+            }
         },
         methods: {
-            ...mapMutations([
-                'SELECT_TAB',
-                'DISABLE_TAB'
-            ])
+
         }
     }
 </script>
