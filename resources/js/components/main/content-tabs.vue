@@ -1,7 +1,7 @@
 <template>
     <v-tabs
             dark
-            color="#337ab7"
+            color="#384bc2"
             show-arrows
             :value.sync="currentItem"
     >
@@ -18,13 +18,23 @@
 
         <v-tabs-items  :value.sync="currentItem">
             <v-tab-item
-                    v-for="i in menu"
-                    :key="i.position"
-                    v-show="i.showPage"
-                    :value="i.action"
+                    v-show="menu[0].showPage"
+                    :value="menu[0].action"
             >
                 <v-card flat>
-                    <v-card-text>{{ text }}</v-card-text>
+                    <v-card-text>
+                        <fornecedor></fornecedor>
+                    </v-card-text>
+                </v-card>
+            </v-tab-item>
+            <v-tab-item
+                    v-show="menu[1].showPage"
+                    :value="menu[1].action"
+            >
+                <v-card flat>
+                    <v-card-text>
+                        duplicate
+                    </v-card-text>
                 </v-card>
             </v-tab-item>
         </v-tabs-items>
@@ -33,7 +43,9 @@
 
 <script>
     import {mapState, mapMutations} from "vuex"
+    import Fornecedor from "../fornecedor/Fornecedor.vue";
     export default {
+        components: {Fornecedor},
         data () {
             return {
                 text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
